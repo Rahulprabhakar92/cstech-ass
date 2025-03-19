@@ -18,8 +18,7 @@ The frontend and backend are in separate directories but work together seamlessl
 
 ### 1. Clone the Repository
 ```sh
-git clone https://github.com/your-username/your-repo.git
-cd my-fullstack-app
+git clone https://github.com/Rahulprabhakar92/cstech-asso.git
 ```
 
 ---
@@ -64,14 +63,14 @@ npm install
 
 ### 3. Start the Server
 ```sh
-node server.js
+node index.js
 ```
 - The Express API will run at `http://localhost:5000`
 
 ### 4. Run with Nodemon (for auto-restart on file changes)
 ```sh
 npm install -g nodemon
-nodemon server.js
+nodemon index.js
 ```
 
 ---
@@ -98,8 +97,8 @@ app.use(cors());
 ---
 
 ## Author
-- **Your Name**
-- GitHub: [your-username](https://github.com/your-username)
+-Gprahul
+- GitHub: [RahulPrabhakar92](https://github.com/Rahulprabhakar92)
 
 ---
 
