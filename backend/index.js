@@ -9,7 +9,7 @@ const multer = require("multer");
 const csvParser = require("csv-parser");
 const xlsx = require("xlsx");
 const fs = require("fs");
-const uploadRoutes=require("../assignment-backend/routes/uploadRoutes")
+const uploadRoutes=require("../backend/routes/uploadRoutes")
 
 
 const app =express()
