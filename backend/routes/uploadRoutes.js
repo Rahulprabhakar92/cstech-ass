@@ -16,9 +16,13 @@ const upload = multer({ dest: "uploads/" });
 router.post("/upload", upload.single("file"), async (req, res) => {
   try {
     const file = req.file;
+    const id=req.body.Id
+    console.log(id)
+
     if (!file) {
       return res.status(400).json({ message: "No file uploaded" });
     }
+
 
     // Validate file type
     const allowedExtensions = ["csv", "xlsx", "xls"];
@@ -37,7 +41,7 @@ router.post("/upload", upload.single("file"), async (req, res) => {
           records.push(row);
         })
         .on("end", async () => {
-          await distributeTasks(records);
+          await distributeTasks(records,id);
           res.status(200).json({ message: "File processed successfully" });
         });
     } else {
@@ -54,8 +58,8 @@ router.post("/upload", upload.single("file"), async (req, res) => {
 });
 
 // Function to distribute tasks equally
-async function distributeTasks(records) {
-  const agents = await AgentModel.find(); // Use AgentModel correctly
+async function distributeTasks(records,id) {
+  const agents = await AgentModel.find({createdBy:id}); 
   if (agents.length === 0) {
     throw new Error("No agents found");
   }

@@ -102,7 +102,7 @@ export default function Agents() {
                     'Content-Type': 'application/json',
                 },
             })
-            console.log(res.data.responce)
+
 
           
             setTasks(res.data.responce);

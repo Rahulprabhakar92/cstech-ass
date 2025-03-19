@@ -106,7 +106,7 @@ app.post("/tasks",async(req,res)=>{
     try{
         const agents=req.body
         const responce=[]
-        console.log(agents)
+
 
 
         for(const agent of agents){
@@ -129,5 +129,5 @@ app.post("/tasks",async(req,res)=>{
 
 })
 
-console.log(":asd")
+
 app.use("/api",uploadRoutes)

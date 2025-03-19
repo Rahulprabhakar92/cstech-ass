@@ -30,9 +30,18 @@ const FileUpload = () => {
       setMessage("Please select a file.");
       return;
     }
+      
+  if (!id) {
+    setMessage("User ID is missing.");
+    return;
+  }
 
     const formData = new FormData();
     formData.append("file", file);
+    formData.append("Id",String(id))
+
+
+    console.log(formData)
 
     try {
       const response = await axios.post("http://localhost:3001/api/upload", formData, {
