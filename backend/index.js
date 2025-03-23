@@ -64,6 +64,8 @@ app.post("/signin",async (req,res)=>{
 app.post("/newAgent",async (req,res)=>{
     try{
     const {firstname,email,mobileNumber,countryCode,password,tasks,createdBy}=req.body
+    const user=await UserModel.findOne({_id:createdBy})
+    console.log(user)
 
     const NewmobileNumber = `${countryCode}${mobileNumber}`;
 
@@ -75,6 +77,9 @@ app.post("/newAgent",async (req,res)=>{
         tasks:tasks || [],
         createdBy
     })
+    console.log(agent.id)
+    user.agents.push(agent.id)
+    await user.save()
     res.status(201).json({agent,message:"Agent is created"})
 }catch(e){
     console.log(e)

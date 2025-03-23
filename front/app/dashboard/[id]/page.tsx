@@ -100,6 +100,7 @@ export default function Agents() {
             const res=await axios.post(`http://localhost:3001/tasks`,formatteddata,{
                 headers: {
                     'Content-Type': 'application/json',
+                    
                 },
             })
 
